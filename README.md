@@ -60,7 +60,7 @@ collection, _ := hubbleClient.CollectObservedEdges(ctx, "k8s:app=payment,role=ca
 report := topology.Compare(expected, collection.Edges)
 ```
 
-This is how it's wired into an Argo Rollouts `AnalysisRun` in [`integrations/argo-rollouts/`](integrations/argo-rollouts/) — a working reference if you want to use this with Argo specifically, but the core `topology`/`hubble` packages have no Argo dependency at all.
+Originally built as part of an Argo Rollouts metric-provider plugin in KubePulse — see [KubePulse's TOPOLOGY_VERIFICATION.md](https://github.com/kritibehl/KubePulse/blob/main/docs/TOPOLOGY_VERIFICATION.md) for that integration. An Argo-specific wrapper for this standalone repo is planned but not yet ported; the core `topology`/`hubble` packages here have no Argo dependency and work standalone today.
 
 ## Tests
 
