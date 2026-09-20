@@ -6,6 +6,8 @@ A canary can show `1/1 Ready` while the actual network traffic it receives — o
 
 `Go` · `Kubernetes client-go` · `Cilium Hubble`
 
+[![Test](https://github.com/kritibehl/k8s-topology-verify/actions/workflows/test.yml/badge.svg)](https://github.com/kritibehl/k8s-topology-verify/actions/workflows/test.yml)
+
 ---
 
 ## What it does
