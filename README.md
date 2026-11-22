@@ -28,9 +28,9 @@ A canary can show `1/1 Ready` while the actual network traffic it receives — o
 
 ## Why this exists
 
-Originally built as a metric-provider plugin for Argo Rollouts, where it caught a real regression: a canary reporting `1/1 Ready` throughout, while Hubble showed its flow-event drop rate rise from 0% to 43.4% (2,219 stable / 106 canary flow events observed). The rollout was auto-aborted while the healthy stable ReplicaSet stayed available.
+Kubernetes says which traffic *should* be reachable (Services and EndpointSlices). Cilium Hubble shows which traffic was *observed*. This tool compares the two and returns PASS, FAIL, or INCONCLUSIVE with a reason. It needs a Kubernetes cluster running Cilium with Hubble enabled, and nothing else.
 
-This repo pulls the detection engine out of that Argo-specific wrapper so it's usable standalone — no Argo Rollouts required, just a Kubernetes cluster running Cilium with Hubble enabled.
+It does not compute flow drop rates. Drop-rate canary gating is a separate check in [KubePulse](https://github.com/kritibehl/KubePulse).
 
 ## Use it
 
